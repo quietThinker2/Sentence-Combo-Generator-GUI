@@ -1,0 +1,248 @@
+The Plannning Doc: 
+    Sentence Combo Generator Project
+
+Table of Content:
+-1. Program Specs
+-2. Purpose
+-3. GUI Design
+-4. Operating Manual
+-5. Issues/Decisions
+
+----------------------------------------------------------------------------------------------
+
+1.
+Program Specs
+
+    Language - Java
+    Framework - Javafx
+    JDK - corretto-17.0.7
+
+----------------------------------------------------------------------------------------------
+
+2.
+Purpose - Why should this program exist?
+    -1. Format Comma Seperatated Values(csv) (for a DB)
+    -2. Data Input Simplicity
+    -3. Text Output Simplicity
+
+----------------------------------------------------------------------------------------------
+    
+3. 
+GUI Design - Layout
+    -Model 1 - All Output
+    -Model 2 - Text Area Input Toggle Option
+    -Model 3 - Sentence Mode Simplified
+        
+        Model 1 - All Out   (Completed Around 5-21-23)
+    _____________________________________________   
+    |                                           |   
+    |           Sentence Combo Generator        |   
+    |                                           |   
+    |                                           |   
+    |      J Sentence:        Text Area         |   J = Japanese
+    |      E Sentence:        Text Area         |   E = English
+    |      R Sentence:        Text Area         |   R = Romaji
+    |                                           |   
+    |      J Values Y:        Text Area         |   
+    |      E Values Y:        Text Area         |   
+    |      R Values Y:        Text Area         |   
+    |                                           |   
+    |      J Values Z:        Text Area         |   
+    |      E Values Z:        Text Area         |   
+    |      R Values Z:        Text Area         |   
+    |                                           |   
+    |               Sentence Mode:              |   
+    |   Radio Y        Radio Z      Radio XYZ   |    Radio Y,Z = Single
+    |   Radio SYZ      Radio SZY    Radio WXYZ  |    Radio SYZ,SZY = Swapped
+    |   Radio OYZ      Radio OZY                |    Radio OYZ,OZY,XYZ,WXYZ = Ordered 
+    |      Button Generate   Button Clear       |   
+    |                Button Copy                |   
+    |                 Text Area                 |   
+    ---------------------------------------------   
+
+        Model 2 - Text Area Input Toggle Option
+    _____________________________________________   _____________________________________________
+    |                                           |   |                                           |
+    |           Sentence Combo Generator        |   |           Sentence Combo Generator        |
+    |                                           |   |                                           |
+    |                       Toggle Button OFF   |   |                       Toggle Button ON    |  Newly Added Toggle Button to switch how input is given
+    |      J Sentence:        Text Area         |   |      J Sentence:                          |  Toggle OFF = Enter each Value manually   (Pasted individually)
+    |      E Sentence:        Text Area         |   |      E Sentence:        Text Area         |  Toggle ON = Grouped Values               (Pasted in groups)
+    |      R Sentence:        Text Area         |   |      R Sentence:                          |
+    |                                           |   |                                           |
+    |      J Values Y:        Text Area         |   |      J Values Y:                          |       
+    |      E Values Y:        Text Area         |   |      E Values Y:        Text Area         |
+    |      R Values Y:        Text Area         |   |      R Values Y:                          |
+    |                                           |   |                                           |
+    |      J Values Z:        Text Area         |   |      J Values Z:                          |
+    |      E Values Z:        Text Area         |   |      E Values Z:        Text Area         |   
+    |      R Values Z:        Text Area         |   |      R Values Z:                          |
+    |                                           |   |                                           |
+    |               Sentence Mode:              |   |               Sentence Mode:              |
+    |   Radio Y        Radio Z      Radio XYZ   |   |   Radio Y        Radio Z      Radio XYZ   |  
+    |   Radio SYZ      Radio SZY    Radio WXYZ  |   |   Radio SYZ      Radio SZY    Radio WXYZ  |
+    |   Radio OYZ      Radio OZY                |   |   Radio OYZ      Radio OZY                |
+    |      Button Generate   Button Clear       |   |      Button Generate   Button Clear       |
+    |                Button Copy                |   |                Button Copy                |
+    |                 Text Area                 |   |                 Text Area                 |
+    ---------------------------------------------   ---------------------------------------------
+
+        Model 3 - Sentence Mode Simplified
+    _____________________________________________   _____________________________________________
+    |                                           |   |                                           |
+    |           Sentence Combo Generator        |   |           Sentence Combo Generator        |   Radio Buttons replaced with Menu Buttons
+    |                                           |   |                                           |
+    |                       Toggle Button       |   |                       Toggle Button       |
+    |      J Sentence:        Text Area         |   |      J Sentence:                          |
+    |      E Sentence:        Text Area         |   |      E Sentence:        Text Area         |
+    |      Ro Sentence:       Text Area         |   |      Ro Sentence:                         |
+    |                                           |   |                                           |
+    |      J Values Y:        Text Area         |   |      J Values Y:                          |
+    |      E Values Y:        Text Area         |   |      E Values Y:        Text Area         |
+    |      R Values Y:        Text Area         |   |      R Values Y:                          |
+    |                                           |   |                                           |
+    |      J Values Z:        Text Area         |   |      J Values Z:                          |
+    |      E Values Z:        Text Area         |   |      E Values Z:        Text Area         |   
+    |      R Values Z:        Text Area         |   |      R Values Z:                          |
+    |                                           |   |                                           |
+    |               Sentence Mode:              |   |               Sentence Mode:              |
+    | MB Single     MB Swapped     MB Ordered   |   | MB Single     MB Swapped     MB Ordered   |   MB = Menu Button 
+    |                                           |   |   Y               YZ          YZ          |
+    |      Button Generate   Button Clear       |   |   Z               ZY          ZY          |
+    |                Button Copy                |   |                               XYZ         |
+    |                 Text Area                 |   |                               WXYZ        |
+    ---------------------------------------------   |                                           |
+                                                    |      Button Generate   Button Clear       |
+                                                    |                Button Copy                |
+                                                    |                 Text Area                 |
+                                                    ---------------------------------------------
+
+----------------------------------------------------------------------------------------------
+
+                                                
+4. 
+Operating Manual
+    -Sentence Modes Explained
+    -Usage Example
+    
+    This program prevents manually typing out sentence combinations with one or multiple words in a sentence. The output is in a csv format: japanese,english,romaji -> はい,yes,hai
+    
+    -Sentence Modes Explained
+        -Single
+        -Swapped
+        -Ordered
+        
+    -Usage Example
+
+        Model 1 (As Of 5-21-23)
+
+        Sentence Mode: Single (Y)/(Z)
+                English Sentence: cake is tasty
+                Formula: Y is tasty
+                Sentence Variables: One
+                
+                Cake can be replaced with other foods.
+                The text area that has "English Values Y" could be cake,rice,sushi
+                The Japanese and Romaji "Values Y" would hold the translation of "English Values Y"
+
+                Since this example only has 1 sentence variable (Y) we dont need to include any Z values.
+                Find the corrisponding Radio button "Single (Y)" and hit Generate. 
+                
+                    
+                    Japanese Sentence:        Yおいしいです                       Output Example:    ケーキはおいしいです,cake is yummy,keeki wa oishii desu
+                    English Sentence:         Y is yummy                                           ごはんはおいしいです,rice is yummy,gohan wa oishii desu
+                    Romaji Sentence:          Y oishii desu                                        すしはおいしいです,sushi is yummy,sushi wa oishii desu
+                    
+                    Japanese Values Y:        ケーキ,ごはん,すし        
+                    English Values Y:         cake,rice,sushi         
+                    Romaji Values Y:          keeki,gohan,sushi                                                  
+                    
+                    Japanese Values Z:        Empty Text Area        
+                    English Values Z:         Empty Text Area         
+                    Romaji Values Z:          Empty Text Area                                                  
+
+                The above example Y Values can be placed onto the Z values as long as Sentence Mode radio button "Single (Z)" is selected
+                
+        Sentence Mode: Swapped (Y Z)/(Z Y) 
+                English Sentence: it is cake and sushi
+                Formula: two Y Values (or two Z Values) -> it is Y1 and Y2 (where Y1 != Y2)
+                Sentence Variables: One
+                
+                The Y and Z in the sentence represent one Y or Z Values. Not both.
+                The values are switched for each combinations but skips over same values -> it is cake and cake 
+                
+                    Japanese Sentence:        YとZです                             Output Example: ケーキとごはんです,it is cake and rice,keeki to gohan desu
+                    English Sentence:         it is Y and Z                                       ケーキとすしです,it is cake and sushi,keeki to sushi desu  
+                    Romaji Sentence:          YtoZdesu                                            ごはんとケーキです,it is rice and cake,gohan to keeki desu
+                                                                                                  ごはんとすしです,it is rice and sushi,gohan to sushi desu
+                    Japanese Values Y:        ケーキ,ごはん,すし                                     すしとケーキです,it is sushi and cake,sushi to keeki desu
+                    English Values Y:         cake,rice,sushi                                     すしとごはんです,it is sushi and rice,sushi to gohan desu
+                    Romaji Values Y:          keeki,gohan,sushi                                                  
+                    
+                    Japanese Values Z:        Empty Text Area        
+                    English Values Z:         Empty Text Area         
+                    Romaji Values Z:          Empty Text Area                                                  
+                    
+                The above example Y Values can be placed onto the Z values as long as Sentence Mode radio button "Swapped (Z Y)" is selected
+                
+        Sentence Mode: Ordered (Y Z)/(Z Y)/(X Y Z)/(W X Y Z)
+            Ordered Example 1 :
+                English Sentence: they are a cool lawyer
+                Formula: they are a Y Z 
+                Sentence Variables: Two
+                
+                The Ordered mode will place each Y or Z value into the corisponding sentence variable
+                
+                    Japanese Sentence:        YZです                             Output Example: ~~~~,they are a nice lawyer,~~~~~~~
+                    English Sentence:         they are a Y Z                                    ~~~~,they are a nice teacher,~~~~~~~ 
+                    Romaji Sentence:          YZdesu                                            ~~~~,they are a nice doctor,~~~~~~~
+                                                                                                ~~~~,they are a cool lawyer,~~~~~~~
+                    Japanese Values Y:        やさしい,かっこい                                    ++ more
+                    English Values Y:         nice,cool                                     
+                    Romaji Values Y:          yasashi,kakkoi                                                  
+                    
+                    Japanese Values Z:        べんごし,せんせい,いしゃ        
+                    English Values Z:         lawyer,teacher,doctor         
+                    Romaji Values Z:          bengoshi,sensei,ishya                                        
+                    
+            Ordered Example 2 :
+                English Sentence: a nice teacher and cool teacher
+                Formula:  Y Z and W1 X2 (where y+x != w+x)
+                Sentence Variables: Four
+                
+                The Ordered mode will place each Y(W1,X1) or Z(W2,X2) value into the corisponding sentence variable
+                W and X numbers corisponding as:
+                        Y Values -> W1  X1
+                        Z Values -> W2  X2
+                
+                    Japanese Sentence:        YZとW1X2です                             Output Example: ~~~~,they are a cool lawyer and a nice lawyer,~~~~~~~
+                    English Sentence:         they are a Y Z and a W1 X2                              ~~~~,they are a cool lawyer and a nice teacher,~~~~~~~ 
+                    Romaji Sentence:          Y Z to W1 X2 desu                                       ~~~~,they are a cool lawyer and a nice doctor,~~~~~~~
+                                                                                                      ~~~~,they are a cool lawyer and a cool teacher,~~~~~~~
+                    Japanese Values Y:        やさしい,かっこい                                          ++ more
+                    English Values Y:         nice,cool                                     
+                    Romaji Values Y:          yasashi,kakkoi                                                  
+                    
+                    Japanese Values Z:        べんごし,せんせい,いしゃ        
+                    English Values Z:         lawyer,teacher,doctor         
+                    Romaji Values Z:          bengoshi,sensei,ishya                                        
+
+----------------------------------------------------------------------------------------------
+
+5.
+Issues/Decisions
+
+    Issues:
+        -User can't type in Kanji,Hiragana,katakana (Can Copy/Paste) 5/21/23
+        -Order Y Z and Order Z Y Do the Same Exact Thing 5/21/23
+        -Swap 3 or 4 values 5-21-23
+
+    Decisions:
+        -Review Swap Sentence Mode (Is YZ and ZY needed?) 5/21/23
+            Answer: Keeping Both Modes
+                    Y Z takes Y values and mix 
+                    Z Y takes Z values and mix
+                    
+                    
+                    
+                    
