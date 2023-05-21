@@ -60,7 +60,7 @@ GUI Design - Layout
     |                 Text Area                 |   
     ---------------------------------------------   
 
-        Model 2 - Text Area Input Toggle Option
+        Model 2 - Text Area Input Toggle Option (Completed 5-21-23)
     _____________________________________________   _____________________________________________
     |                                           |   |                                           |
     |           Sentence Combo Generator        |   |           Sentence Combo Generator        |
@@ -79,15 +79,15 @@ GUI Design - Layout
     |      R Values Z:        Text Area         |   |      R Values Z:                          |
     |                                           |   |                                           |
     |               Sentence Mode:              |   |               Sentence Mode:              |
-    |   Radio Y        Radio Z      Radio XYZ   |   |   Radio Y        Radio Z      Radio XYZ   |  
-    |   Radio SYZ      Radio SZY    Radio WXYZ  |   |   Radio SYZ      Radio SZY    Radio WXYZ  |
-    |   Radio OYZ      Radio OZY                |   |   Radio OYZ      Radio OZY                |
+    |   Radio Y        Radio SYZ    Radio OYZ   |   |   Radio Y        Radio SYZ    Radio OYZ   |  
+    |   Radio Z        Radio SZY    Radio OXYZ  |   |   Radio Z        Radio SZY    Radio OXYZ  |
+    |                  Radio SXYZ   Radio OWXYZ |   |                  Radio SXYZ   Radio OWXYZ |
     |      Button Generate   Button Clear       |   |      Button Generate   Button Clear       |
     |                Button Copy                |   |                Button Copy                |
     |                 Text Area                 |   |                 Text Area                 |
     ---------------------------------------------   ---------------------------------------------
 
-        Model 3 - Sentence Mode Simplified
+        Model 3 - Sentence Mode Simplified  (Scapped Idea)
     _____________________________________________   _____________________________________________
     |                                           |   |                                           |
     |           Sentence Combo Generator        |   |           Sentence Combo Generator        |   Radio Buttons replaced with Menu Buttons
@@ -97,26 +97,26 @@ GUI Design - Layout
     |      E Sentence:        Text Area         |   |      E Sentence:        Text Area         |
     |      Ro Sentence:       Text Area         |   |      Ro Sentence:                         |
     |                                           |   |                                           |
-    |      J Values Y:        Text Area         |   |      J Values Y:                          |
+    |      J Values Y:        Text Area         |   |      J Values Y:                          |       (Scrapped)
     |      E Values Y:        Text Area         |   |      E Values Y:        Text Area         |
     |      R Values Y:        Text Area         |   |      R Values Y:                          |
     |                                           |   |                                           |
     |      J Values Z:        Text Area         |   |      J Values Z:                          |
-    |      E Values Z:        Text Area         |   |      E Values Z:        Text Area         |   
+    |      E Values Z:        Text Area         |   |      E Values Z:        Text Area         |   (Scrapped)
     |      R Values Z:        Text Area         |   |      R Values Z:                          |
     |                                           |   |                                           |
     |               Sentence Mode:              |   |               Sentence Mode:              |
     | MB Single     MB Swapped     MB Ordered   |   | MB Single     MB Swapped     MB Ordered   |   MB = Menu Button 
     |                                           |   |   Y               YZ          YZ          |
     |      Button Generate   Button Clear       |   |   Z               ZY          ZY          |
-    |                Button Copy                |   |                               XYZ         |
+    |                Button Copy                |   |                               XYZ         |(Scrapped)
     |                 Text Area                 |   |                               WXYZ        |
-    ---------------------------------------------   |                                           |
+    ---------------------------------------------   |                                           |       (Scrapped)
                                                     |      Button Generate   Button Clear       |
                                                     |                Button Copy                |
                                                     |                 Text Area                 |
                                                     ---------------------------------------------
-
+(Scrapped)
 ----------------------------------------------------------------------------------------------
 
                                                 
@@ -134,7 +134,6 @@ Operating Manual
         
     -Usage Example
 
-        Model 1 (As Of 5-21-23)
 
         Sentence Mode: Single (Y)/(Z)
                 English Sentence: cake is tasty
@@ -184,6 +183,27 @@ Operating Manual
                     Romaji Values Z:          Empty Text Area                                                  
                     
                 The above example Y Values can be placed onto the Z values as long as Sentence Mode radio button "Swapped (Z Y)" is selected
+        
+        Sentence Mode: Swapped (X Y Z)
+                English Sentence: a lawyer a teacher and a doctor
+                Formula: three Y Values (or three Z Values) -> it is Y1 and Y2 and Y3 (where Y1 != Y2 and Y1 != Y3)
+                Sentence Variables: One
+                
+                A List without any repeates.
+                Selecting X (X1/X2) determines if the values are from Y or Z
+
+                    Japanese Sentence:        X2YとZ                             Output Example: いしゃせんせいとべんごし,a doctor a teacher and a lawyer,ishya sensei to bengoshi
+                    English Sentence:         a X2 a Y and a Z                                   せんせいいしゃとべんごし,a teacher a doctor and a lawyer,sensei ishya to bengoshi
+                    Romaji Sentence:          X2 Y to Z                                          いしゃべんごしとせんせい,a doctor a lawyer and a teacher,ishya bengoshi to sensei
+                                                                                                 べんごしいしゃとせんせい,a lawyer a doctor and a teacher,bengoshi ishya to sensei
+                    Japanese Values Y:        Empty Text Area                                    せんせいべんごしといしゃ,a teacher a lawyer and a doctor,sensei bengoshi to ishya
+                    English Values Y:         Empty Text Area                                    べんごしせんせいといしゃ,a lawyer a teacher and a doctor,bengoshi sensei to ishya
+                    Romaji Values Y:          Empty Text Area                                                  
+                    
+                    Japanese Values Z:        べんごし,せんせい,いしゃ        
+                    English Values Z:         lawyer,teacher,doctor         
+                    Romaji Values Z:          bengoshi,sensei,ishya                                                  
+                    
                 
         Sentence Mode: Ordered (Y Z)/(Z Y)/(X Y Z)/(W X Y Z)
             Ordered Example 1 :
@@ -234,15 +254,36 @@ Issues/Decisions
 
     Issues:
         -User can't type in Kanji,Hiragana,katakana (Can Copy/Paste) 5/21/23
-        -Order Y Z and Order Z Y Do the Same Exact Thing 5/21/23
-        -Swap 3 or 4 values 5-21-23
+        
 
     Decisions:
-        -Review Swap Sentence Mode (Is YZ and ZY needed?) 5/21/23
+        -Review Swap Sentence Mode (Is Swap YZ and Swap ZY needed?) 5/21/23
             Answer: Keeping Both Modes
-                    Y Z takes Y values and mix 
-                    Z Y takes Z values and mix
+                    Y Z takes Y values and mixes 
+                    Z Y takes Z values and mixes
+        
+        -Review Sentence Mode Order Z Y (Same Output as Order Y Z?) 5/21/23
+            Answer: Removing Order (Z Y) Mode
+                    Both Order (Y Z) and Order (Z Y) do the same
                     
+        -Swap 3 Y/Z Values (list no repeates) 5-21-23
+            Answer: New Sentence Mode Created
+                    Swapped (X Y Z) -> takes 3 Y or 3 X values and list them
+                    No two same values can be in a single swap
+----------------------------------------------------------------------------------------------                    
                     
-                    
-                    
+YZとW1X2です
+they are a Y Z and a W1 X2
+Y Z to W1 X2 desu
+
+やさしい,かっこい
+nice,cool
+yasashi,kakkoi
+
+べんごし,せんせい,いしゃ
+lawyer,teacher,doctor
+bengoshi,sensei,ishya
+
+X1YとZ
+X1 Y and Z
+X1YtoZ

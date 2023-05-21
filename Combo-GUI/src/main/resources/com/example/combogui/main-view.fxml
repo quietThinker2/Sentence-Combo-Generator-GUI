@@ -23,21 +23,30 @@
        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
      </columnConstraints>
      <rowConstraints>
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
      </rowConstraints>
       <children>
-         <Label text="Japanese Sentence:" />
-         <Label text="English Sentence:" GridPane.rowIndex="1" />
-         <Label text="Romaji Sentence:" GridPane.rowIndex="2" />
-         <TextArea fx:id="japaneseSentBox" prefHeight="200.0" prefWidth="200.0" promptText="YとZです" wrapText="true" GridPane.columnIndex="1">
+         <Label text="Japanese Sentence:" GridPane.rowIndex="1" />
+         <Label text="English Sentence:" GridPane.rowIndex="2" />
+         <Label text="Romaji Sentence:" GridPane.rowIndex="3" />
+         <TextArea fx:id="japaneseSentBox" prefHeight="200.0" prefWidth="200.0" promptText="YとZです" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <font>
                <Font name="Noto Sans CJK JP" size="13.0" />
             </font>
          </TextArea>
-         <TextArea fx:id="englishSentBox" prefHeight="200.0" prefWidth="200.0" promptText="it is Y and Z" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-         <TextArea fx:id="romajiSentBox" prefHeight="200.0" prefWidth="200.0" promptText="Y to Z desu" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <TextArea fx:id="englishSentBox" prefHeight="200.0" prefWidth="200.0" promptText="it is Y and Z" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <TextArea fx:id="romajiSentBox" prefHeight="200.0" prefWidth="200.0" promptText="Y to Z desu" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <ToggleButton fx:id="toggle1" mnemonicParsing="false" onAction="#onToggleClick" text="Mode: Individual" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+            <GridPane.margin>
+               <Insets bottom="10.0" />
+            </GridPane.margin></ToggleButton>
+         <TextArea fx:id="sentenceBox" minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" promptText="YZとW1X2です&#13;they are a Y Z and a W1 X2&#13;Y Z to W1 X2 desu" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <font>
+               <Font name="Noto Sans CJK JP" size="13.0" />
+            </font></TextArea>
       </children>
       <padding>
          <Insets bottom="10.0" />
@@ -63,6 +72,10 @@
          <TextArea fx:id="englishBox1" prefHeight="8.0" prefWidth="264.0" promptText="america,japan" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          <Label text="Romaji Values Y:" GridPane.rowIndex="2" />
          <TextArea fx:id="romajiBox1" prefHeight="0.0" prefWidth="264.0" promptText="amerika,nihon" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <TextArea fx:id="yBox" minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" promptText="やさしい,かっこい&#13;nice,cool&#13;yasashi,kakkoi" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <font>
+               <Font name="Noto Sans CJK JP" size="13.0" />
+            </font></TextArea>
       </children>
       <VBox.margin>
          <Insets bottom="10.0" />
@@ -88,6 +101,10 @@
          <TextArea fx:id="englishBox2" prefHeight="23.0" prefWidth="264.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          <Label text="Romaji Values Z:" GridPane.rowIndex="2" />
          <TextArea fx:id="romajiBox2" prefHeight="23.0" prefWidth="264.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <TextArea fx:id="zBox" minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" promptText="べんごし,せんせい,いしゃ&#13;lawyer,teacher,doctor&#13;bengoshi,sensei,ishya" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <font>
+               <Font name="Noto Sans CJK JP" size="13.0" />
+            </font></TextArea>
       </children>
    </GridPane>
    <Label layoutX="112.0" layoutY="330.0" text="Sentence Mode:">
@@ -114,13 +131,13 @@
                <ToggleGroup fx:id="t1" />
             </toggleGroup>
          </RadioButton>
-         <RadioButton fx:id="r4" mnemonicParsing="false" onAction="#onRadioClick" text="Single (Z)" toggleGroup="$t1" GridPane.columnIndex="1" />
-         <RadioButton fx:id="r2" mnemonicParsing="false" onAction="#onRadioClick" text="Swapped (Y Z)" toggleGroup="$t1" GridPane.rowIndex="1" />
+         <RadioButton fx:id="r4" mnemonicParsing="false" onAction="#onRadioClick" text="Single (Z)" toggleGroup="$t1" GridPane.rowIndex="1" />
+         <RadioButton fx:id="r2" mnemonicParsing="false" onAction="#onRadioClick" text="Swapped (Y Z)" toggleGroup="$t1" GridPane.columnIndex="1" />
          <RadioButton fx:id="r5" mnemonicParsing="false" onAction="#onRadioClick" text="Swapped (Z Y)" toggleGroup="$t1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-         <RadioButton fx:id="r7" mnemonicParsing="false" onAction="#onRadioClick" text="Ordered (X Y Z)" toggleGroup="$t1" GridPane.columnIndex="2" />
-         <RadioButton fx:id="r8" mnemonicParsing="false" onAction="#onRadioClick" text="Ordered (W X Y Z)" toggleGroup="$t1" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-         <RadioButton fx:id="r3" mnemonicParsing="false" onAction="#onRadioClick" text="Ordered (Y Z)" toggleGroup="$t1" GridPane.rowIndex="2" />
-         <RadioButton fx:id="r6" mnemonicParsing="false" onAction="#onRadioClick" text="Ordered (Z Y)" toggleGroup="$t1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <RadioButton fx:id="r7" mnemonicParsing="false" onAction="#onRadioClick" text="Ordered (X Y Z)" toggleGroup="$t1" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         <RadioButton fx:id="r8" mnemonicParsing="false" onAction="#onRadioClick" text="Ordered (W X Y Z)" toggleGroup="$t1" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         <RadioButton fx:id="r3" mnemonicParsing="false" onAction="#onRadioClick" text="Ordered (Y Z)" toggleGroup="$t1" GridPane.columnIndex="2" />
+         <RadioButton fx:id="r6" mnemonicParsing="false" onAction="#onRadioClick" text="Swapped (X Y Z)" toggleGroup="$t1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       </children>
    </GridPane>
    <GridPane>
@@ -132,12 +149,12 @@
        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
      </rowConstraints>
       <children>
-        <Button onAction="#onFinishButtonClick" text="Generate" GridPane.halignment="RIGHT">
+        <Button onAction="#onGenerateButtonClick" text="Generate" GridPane.halignment="CENTER">
             <GridPane.margin>
                <Insets right="10.0" />
             </GridPane.margin>
          </Button>
-         <Button mnemonicParsing="false" onAction="#onClearButtonClick" text="Clear Text" GridPane.columnIndex="1">
+         <Button mnemonicParsing="false" onAction="#onClearButtonClick" text="Clear Text" GridPane.columnIndex="1" GridPane.halignment="CENTER">
             <GridPane.margin>
                <Insets left="10.0" />
             </GridPane.margin></Button>
@@ -151,7 +168,7 @@
          <Insets />
       </VBox.margin>
    </Button>
-   <TextArea fx:id="outputBox" prefHeight="68.0" prefWidth="317.0" text="Output and Mode directions will be written here" wrapText="true">
+   <TextArea fx:id="outputBox" minHeight="-Infinity" prefHeight="75.0" prefWidth="317.0" text="Output and Mode directions will be written here" wrapText="true">
       <font>
          <Font name="Noto Sans CJK JP" size="13.0" />
       </font></TextArea>

@@ -132,6 +132,59 @@ public class SentenceCombos {
         }
         return output.toString();
     }
+    //Triple Swap - Takes one of the same values and swaps them -> it is a A B and C - it is a A C and B
+    public String runTripleSwap() {
+
+        String[] english_y,japanese_y,romaji_y;
+        String side1 ="";
+        String side2="";
+        String side3="";
+        //if sentence contains X1 or X2
+        if (engSentence.contains("X1")){
+            side1 = "Y";
+            side2 = "Z";
+            side3="X1";
+            //separate variables by comma
+            english_y = engValuesY.split(",");
+            japanese_y = japValuesY.split(",");
+            romaji_y = romaValuesY.split(",");
+        } else {
+            side1 = "Z";
+            side2 = "Y";
+            side3 = "X2";
+            //separate variables by comma
+            english_y = engValuesZ.split(",");
+            japanese_y = japValuesZ.split(",");
+            romaji_y = romaValuesZ.split(",");
+        }
+
+        StringBuilder output = new StringBuilder();
+
+        for (int i = 0; i <= english_y.length - 1; i++) {
+
+            String englishTempY = engSentence.replaceAll(side1, english_y[i]);
+            String japaneseTempY = japSentence.replaceAll(side1, japanese_y[i]);
+            String romajiTempY = romaSentence.replaceAll(side1, romaji_y[i]);
+
+            for (int v = 0; v <= english_y.length - 1; v++) {
+                if (!english_y[i].equals(english_y[v])) {
+                    String englishTempZ = englishTempY.replaceAll(side2, english_y[v]);
+                    String japaneseTempZ = japaneseTempY.replaceAll(side2, japanese_y[v]);
+                    String romajiTempZ = romajiTempY.replaceAll(side2, romaji_y[v]);
+
+                    for (int x = 0; x <= english_y.length - 1; x++) {
+                        if (!english_y[v].equals(english_y[x]) & !english_y[i].equals(english_y[x]) ) {
+                            String englishTempX = englishTempZ.replaceAll(side3, english_y[x]);
+                            String japaneseTempX = japaneseTempZ.replaceAll(side3, japanese_y[x]);
+                            String romajiTempX = romajiTempZ.replaceAll(side3, romaji_y[x]);
+                            output.append(japaneseTempX).append(",").append(englishTempX).append(",").append(romajiTempX).append("\n");
+                        }
+                    }
+                }
+            }
+        }
+        return output.toString();
+    }
 
 
     //Double Order - Swaps from an order a -> 1,2,3  b -> 1,2,3
