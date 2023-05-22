@@ -12,19 +12,17 @@
 
 ## See The Program
 
-<p align="center">
-<img src="https://github.com/quietThinker2/Sentence-Combo-Generator-GUI/tree/main/img/freshCombo.jpg" alt="Fresh Module 2 - Mode Individual" width="" height="">
-</p>
+<p >
+<img src="https://github.com/quietThinker2/Sentence-Combo-Generator-GUI/blob/main/img/freshCombo.jpg" alt="Fresh Module 2 - Mode Individual" width="500" height="">
 
-<p align="center">
-<img src="https://github.com/quietThinker2/Sentence-Combo-Generator-GUI/tree/main/img/freshComboTop2.jpg" alt="Fresh Module 2 - Top - Mode Group" width="" height="">
+<img src="https://github.com/quietThinker2/Sentence-Combo-Generator-GUI/blob/main/img/freshComboTop2.jpg" alt="Fresh Module 2 - Top - Mode Group" width="500" height="">
 </p>
 
 ## Program Usage Example
 
 
 <p align="center">
-<img src="https://github.com/quietThinker2/Sentence-Combo-Generator-GUI/tree/main/img/comboFilled" alt="Fresh Module 2 - Top - Mode Group" width="" height="">
+<img src="https://github.com/quietThinker2/Sentence-Combo-Generator-GUI/blob/main/img/comboFilled.jpg" alt="Fresh Module 2 - Top - Mode Group" width="" height="">
 </p>
 
 
@@ -36,4 +34,4 @@
         あかいぼうしとしろいかさです,it is a red hat and a white umbrella,akai boushi to shiroi kasa desu
         あかいぼうしとあかいコートです,it is a red hat and a red coat,akai boushi to akai kooto desu
         あかいぼうしとしろいコートです,it is a red hat and a white coat,akai boushi to shiroi kooto desu
-        +55 More CVS Lines
+        +55 More CSV Lines
