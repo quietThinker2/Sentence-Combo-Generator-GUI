@@ -13,7 +13,6 @@ Table of Content:
 1.
 Program Specs
 
-    Language - Java
     Framework - Javafx
     JDK - corretto-17.0.7
 
@@ -21,7 +20,7 @@ Program Specs
 
 2.
 Purpose - Why should this program exist?
-    -1. Format Comma Seperatated Values(csv) (for a DB)
+    -1. Format Comma Separated Values(CSV) (for a DB)
     -2. Data Input Simplicity
     -3. Text Output Simplicity
 
@@ -31,7 +30,8 @@ Purpose - Why should this program exist?
 GUI Design - Layout
     -Model 1 - All Output
     -Model 2 - Text Area Input Toggle Option
-    -Model 3 - Sentence Mode Simplified
+    -Model 3 - Sentence Mode Simplified [Scrapped]
+    
         
         Model 1 - All Out   (Completed Around 5-21-23)
     _____________________________________________   
@@ -87,7 +87,7 @@ GUI Design - Layout
     |                 Text Area                 |   |                 Text Area                 |
     ---------------------------------------------   ---------------------------------------------
 
-        Model 3 - Sentence Mode Simplified  (Scapped Idea)
+        Model 3 - Sentence Mode Simplified  (Scrapped Idea)
     _____________________________________________   _____________________________________________
     |                                           |   |                                           |
     |           Sentence Combo Generator        |   |           Sentence Combo Generator        |   Radio Buttons replaced with Menu Buttons
@@ -95,7 +95,7 @@ GUI Design - Layout
     |                       Toggle Button       |   |                       Toggle Button       |
     |      J Sentence:        Text Area         |   |      J Sentence:                          |
     |      E Sentence:        Text Area         |   |      E Sentence:        Text Area         |
-    |      Ro Sentence:       Text Area         |   |      Ro Sentence:                         |
+    |      R Sentence:       Text Area          |   |      R Sentence:                         |
     |                                           |   |                                           |
     |      J Values Y:        Text Area         |   |      J Values Y:                          |       (Scrapped)
     |      E Values Y:        Text Area         |   |      E Values Y:        Text Area         |
@@ -125,7 +125,7 @@ Operating Manual
     -Sentence Modes Explained
     -Usage Example
     
-    This program prevents manually typing out sentence combinations with one or multiple words in a sentence. The output is in a csv format: japanese,english,romaji -> はい,yes,hai
+    This program prevents manually typing out sentence combinations with one or multiple words in a sentence. The output is in a CSV format: japanese,english,romaji -> はい,yes,hai
     
     -Sentence Modes Explained
         -Single
@@ -144,8 +144,8 @@ Operating Manual
                 The text area that has "English Values Y" could be cake,rice,sushi
                 The Japanese and Romaji "Values Y" would hold the translation of "English Values Y"
 
-                Since this example only has 1 sentence variable (Y) we dont need to include any Z values.
-                Find the corrisponding Radio button "Single (Y)" and hit Generate. 
+                Since this example only has 1 sentence variable (Y) we don't need to include any Z values.
+                Find the corresponding Radio button "Single (Y)" and hit Generate. 
                 
                     
                     Japanese Sentence:        Yおいしいです                       Output Example:    ケーキはおいしいです,cake is yummy,keeki wa oishii desu
@@ -189,7 +189,7 @@ Operating Manual
                 Formula: three Y Values (or three Z Values) -> it is Y1 and Y2 and Y3 (where Y1 != Y2 and Y1 != Y3)
                 Sentence Variables: One
                 
-                A List without any repeates.
+                A List without any repeats.
                 Selecting X (X1/X2) determines if the values are from Y or Z
 
                     Japanese Sentence:        X2YとZ                             Output Example: いしゃせんせいとべんごし,a doctor a teacher and a lawyer,ishya sensei to bengoshi
@@ -205,7 +205,7 @@ Operating Manual
                     Romaji Values Z:          bengoshi,sensei,ishya                                                  
                     
                 
-        Sentence Mode: Ordered (Y Z)/(Z Y)/(X Y Z)/(W X Y Z)
+        Sentence Mode: Ordered (Y Z)/(X Y Z)/(W X Y Z)
             Ordered Example 1 :
                 English Sentence: they are a cool lawyer
                 Formula: they are a Y Z 
@@ -230,8 +230,8 @@ Operating Manual
                 Formula:  Y Z and W1 X2 (where y+x != w+x)
                 Sentence Variables: Four
                 
-                The Ordered mode will place each Y(W1,X1) or Z(W2,X2) value into the corisponding sentence variable
-                W and X numbers corisponding as:
+                The Ordered mode will place each Y(W1,X1) or Z(W2,X2) value into the corresponding sentence variable
+                W and X numbers correspond as:
                         Y Values -> W1  X1
                         Z Values -> W2  X2
                 
@@ -264,26 +264,10 @@ Issues/Decisions
         
         -Review Sentence Mode Order Z Y (Same Output as Order Y Z?) 5/21/23
             Answer: Removing Order (Z Y) Mode
-                    Both Order (Y Z) and Order (Z Y) do the same
+                    Both Order (Y Z) and Order (Z Y) give same output
                     
-        -Swap 3 Y/Z Values (list no repeates) 5-21-23
+        -Swap 3 Y/Z Values (list no repeats) 5-21-23
             Answer: New Sentence Mode Created
                     Swapped (X Y Z) -> takes 3 Y or 3 X values and list them
                     No two same values can be in a single swap
 ----------------------------------------------------------------------------------------------                    
-                    
-YZとW1X2です
-they are a Y Z and a W1 X2
-Y Z to W1 X2 desu
-
-やさしい,かっこい
-nice,cool
-yasashi,kakkoi
-
-べんごし,せんせい,いしゃ
-lawyer,teacher,doctor
-bengoshi,sensei,ishya
-
-X1YとZ
-X1 Y and Z
-X1YtoZ

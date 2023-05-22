@@ -126,18 +126,18 @@
        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
      </rowConstraints>
       <children>
-         <RadioButton fx:id="r1" mnemonicParsing="false" onAction="#onRadioClick" text="Single (Y)">
+         <RadioButton fx:id="rSingleY" mnemonicParsing="false" onAction="#onRadioClick" text="Single (Y)">
             <toggleGroup>
                <ToggleGroup fx:id="t1" />
             </toggleGroup>
          </RadioButton>
-         <RadioButton fx:id="r4" mnemonicParsing="false" onAction="#onRadioClick" text="Single (Z)" toggleGroup="$t1" GridPane.rowIndex="1" />
-         <RadioButton fx:id="r2" mnemonicParsing="false" onAction="#onRadioClick" text="Swapped (Y Z)" toggleGroup="$t1" GridPane.columnIndex="1" />
-         <RadioButton fx:id="r5" mnemonicParsing="false" onAction="#onRadioClick" text="Swapped (Z Y)" toggleGroup="$t1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-         <RadioButton fx:id="r7" mnemonicParsing="false" onAction="#onRadioClick" text="Ordered (X Y Z)" toggleGroup="$t1" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-         <RadioButton fx:id="r8" mnemonicParsing="false" onAction="#onRadioClick" text="Ordered (W X Y Z)" toggleGroup="$t1" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-         <RadioButton fx:id="r3" mnemonicParsing="false" onAction="#onRadioClick" text="Ordered (Y Z)" toggleGroup="$t1" GridPane.columnIndex="2" />
-         <RadioButton fx:id="r6" mnemonicParsing="false" onAction="#onRadioClick" text="Swapped (X Y Z)" toggleGroup="$t1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <RadioButton fx:id="rSingleZ" mnemonicParsing="false" onAction="#onRadioClick" text="Single (Z)" toggleGroup="$t1" GridPane.rowIndex="1" />
+         <RadioButton fx:id="rSwapYZ" mnemonicParsing="false" onAction="#onRadioClick" text="Swapped (Y Z)" toggleGroup="$t1" GridPane.columnIndex="1" />
+         <RadioButton fx:id="rSwapZY" mnemonicParsing="false" onAction="#onRadioClick" text="Swapped (Z Y)" toggleGroup="$t1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <RadioButton fx:id="rOrderXYZ" mnemonicParsing="false" onAction="#onRadioClick" text="Ordered (X Y Z)" toggleGroup="$t1" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         <RadioButton fx:id="rOrderWXYZ" mnemonicParsing="false" onAction="#onRadioClick" text="Ordered (W X Y Z)" toggleGroup="$t1" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         <RadioButton fx:id="rOrderYZ" mnemonicParsing="false" onAction="#onRadioClick" text="Ordered (Y Z)" toggleGroup="$t1" GridPane.columnIndex="2" />
+         <RadioButton fx:id="rSwapXYZ" mnemonicParsing="false" onAction="#onRadioClick" text="Swapped (X Y Z)" toggleGroup="$t1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       </children>
    </GridPane>
    <GridPane>

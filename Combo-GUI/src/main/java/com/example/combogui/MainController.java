@@ -12,7 +12,7 @@ public class MainController {
     public TextArea japaneseSentBox,englishSentBox, romajiSentBox, japaneseBox1, englishBox1, romajiBox1,japaneseBox2, englishBox2,romajiBox2,outputBox, sentenceBox, yBox, zBox;
 
     @FXML
-    public RadioButton r1,r2,r3,r4,r5,r6,r7,r8;
+    public RadioButton rSingleY, rSwapYZ, rOrderYZ, rSingleZ, rSwapZY, rSwapXYZ, rOrderXYZ, rOrderWXYZ;
 
     @FXML
     private ToggleGroup t1;
@@ -23,6 +23,7 @@ public class MainController {
     @FXML
     protected void onGenerateButtonClick() {
 
+        //If toggle is in use replace values
         if (toggle1.isSelected()){
             String fullText = sentenceBox.getText();
             String[] sentence = extractText(fullText);
@@ -45,36 +46,36 @@ public class MainController {
 
 
         RadioButton rb = (RadioButton)t1.getSelectedToggle();
-        if (rb.getText().equals(r1.getText())){
+        if (rb.getText().equals(rSingleY.getText())){
             SentenceCombos single = new SentenceCombos.Builder(japaneseSentBox.getText(),englishSentBox.getText(),romajiSentBox.getText(),japaneseBox1.getText(),englishBox1.getText(),romajiBox1.getText(),"Y").build();
             outputBox.setText(single.runSingle());
 
-        } else if (rb.equals(r2)) {
+        } else if (rb.equals(rSwapYZ)) {
             SentenceCombos doubleSwap = new SentenceCombos.Builder(japaneseSentBox.getText(),englishSentBox.getText(),romajiSentBox.getText(),japaneseBox1.getText(),englishBox1.getText(),romajiBox1.getText(),"Y").sideCharTwo("Z").build();
             outputBox.setText(doubleSwap.runDoubleSwap());
 
-        } else if (rb.equals(r3)) {
+        } else if (rb.equals(rOrderYZ)) {
             SentenceCombos doubleOrder = new SentenceCombos.Builder(japaneseSentBox.getText(),englishSentBox.getText(),romajiSentBox.getText(),japaneseBox1.getText(),englishBox1.getText(),romajiBox1.getText(),"Y").japValuesZ(japaneseBox2.getText()).engValuesZ(englishBox2.getText()).romaValuesZ(romajiBox2.getText()).sideCharTwo("Z").build();
             outputBox.setText(doubleOrder.runDoubleOrder());
 
 
-        } else if (rb.equals(r4)){
+        } else if (rb.equals(rSingleZ)){
             SentenceCombos single = new SentenceCombos.Builder(japaneseSentBox.getText(),englishSentBox.getText(),romajiSentBox.getText(),japaneseBox2.getText(),englishBox2.getText(),romajiBox2.getText(),"Z").build();
             outputBox.setText(single.runSingle());
 
-        } else if (rb.equals(r5)){
+        } else if (rb.equals(rSwapZY)){
             SentenceCombos doubleSwap = new SentenceCombos.Builder(japaneseSentBox.getText(),englishSentBox.getText(),romajiSentBox.getText(),japaneseBox2.getText(),englishBox2.getText(),romajiBox2.getText(),"Z").sideCharTwo("Y").build();
             outputBox.setText(doubleSwap.runDoubleSwap());
 
-        }else if (rb.equals(r6)){
+        }else if (rb.equals(rSwapXYZ)){
             SentenceCombos tripleSwap = new SentenceCombos.Builder(japaneseSentBox.getText(),englishSentBox.getText(),romajiSentBox.getText(),japaneseBox1.getText(),englishBox1.getText(),romajiBox1.getText(),"Z").sideCharTwo("Y").japValuesZ(japaneseBox2.getText()).engValuesZ(englishBox2.getText()).romaValuesZ(romajiBox2.getText()).sideCharTwo("Z").build();
             outputBox.setText(tripleSwap.runTripleSwap());
 
-        }  else if (rb.equals(r7)) {
+        }  else if (rb.equals(rOrderXYZ)) {
             SentenceCombos tripleOrder = new SentenceCombos.Builder(japaneseSentBox.getText(),englishSentBox.getText(),romajiSentBox.getText(),japaneseBox2.getText(),englishBox2.getText(),romajiBox2.getText(),"Z").japValuesZ(japaneseBox1.getText()).engValuesZ(englishBox1.getText()).romaValuesZ(romajiBox1.getText()).sideCharTwo("Y").build();
             outputBox.setText(tripleOrder.runTripleOrder());
 
-        } else if (rb.equals(r8)) {
+        } else if (rb.equals(rOrderWXYZ)) {
             SentenceCombos quadOrder = new SentenceCombos.Builder(japaneseSentBox.getText(),englishSentBox.getText(),romajiSentBox.getText(),japaneseBox2.getText(),englishBox2.getText(),romajiBox2.getText(),"Z").japValuesZ(japaneseBox1.getText()).engValuesZ(englishBox1.getText()).romaValuesZ(romajiBox1.getText()).sideCharTwo("Y").build();
             outputBox.setText(quadOrder.runQuadOrder());
 
